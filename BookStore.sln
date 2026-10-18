@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Core", "BookStore
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.DataAccess", "BookStore.DataAccess\BookStore.DataAccess.csproj", "{3B34AD34-D693-4369-B1AA-932F9166A3C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Application", "BookStore.Application\BookStore.Application.csproj", "{1D7F7835-72CC-4916-BEBB-CEB42B141816}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,18 @@ Global
 		{3B34AD34-D693-4369-B1AA-932F9166A3C6}.Release|x64.Build.0 = Release|Any CPU
 		{3B34AD34-D693-4369-B1AA-932F9166A3C6}.Release|x86.ActiveCfg = Release|Any CPU
 		{3B34AD34-D693-4369-B1AA-932F9166A3C6}.Release|x86.Build.0 = Release|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Debug|x64.Build.0 = Debug|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Debug|x86.Build.0 = Debug|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Release|x64.ActiveCfg = Release|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Release|x64.Build.0 = Release|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Release|x86.ActiveCfg = Release|Any CPU
+		{1D7F7835-72CC-4916-BEBB-CEB42B141816}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
