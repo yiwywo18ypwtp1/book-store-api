@@ -1,22 +1,14 @@
-﻿using System.Security.Cryptography;
-using BookStore.Core.Models;
+﻿using BookStore.Core.Models;
 using BookStore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.DataAccess.Repositories;
 
-public class BooksRepository : IBooksRepository
+public class BooksRepository(BookStoreDbContext context) : IBooksRepository
 {
-    private readonly BookStoreDbContext _context;
-    
-    public BooksRepository(BookStoreDbContext context)
-    { 
-        _context = context;
-    }
-
     public async Task<List<Book>> Get()
     {
-        var bookEntities = await _context.Books
+        var bookEntities = await context.Books
             .AsNoTracking()
             .ToListAsync();
 
@@ -37,15 +29,15 @@ public class BooksRepository : IBooksRepository
             Price = book.Price,
         };
 
-        await _context.Books.AddAsync(bookEntity);
-        await _context.SaveChangesAsync();
+        await context.Books.AddAsync(bookEntity);
+        await context.SaveChangesAsync();
         
         return bookEntity.Id;
     }
 
     public async Task<Guid> Update(Guid id, string? title, string? description, decimal? price)
     {
-        await _context.Books
+        await context.Books
             .Where(b => b.Id == id)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(b => b.Title, b => title)
@@ -58,7 +50,7 @@ public class BooksRepository : IBooksRepository
 
     public async Task<Guid> Delete(Guid id)
     {
-        await _context.Books
+        await context.Books
             .Where(b => b.Id == id)
             .ExecuteDeleteAsync();
 
