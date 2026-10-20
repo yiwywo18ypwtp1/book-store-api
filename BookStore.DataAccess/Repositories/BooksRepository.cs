@@ -19,6 +19,25 @@ public class BooksRepository(BookStoreDbContext context) : IBooksRepository
         return books;
     }
 
+    public async Task<Book> GetById(Guid id)
+    {
+        var bookEntity = await context.Books.FindAsync(id);
+
+        if (bookEntity == null)
+        {
+            throw new KeyNotFoundException();
+        }
+        
+        var result = Book.Create(
+            bookEntity.Id,
+            bookEntity.Title,
+            bookEntity.Description,
+            bookEntity.Price
+        );
+
+        return result.Book;
+    }
+
     public async Task<Guid> Create(Book book)
     {
         var bookEntity = new BookEntity

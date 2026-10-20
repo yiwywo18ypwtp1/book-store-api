@@ -9,6 +9,11 @@ public class BookService(IBooksRepository booksRepository) : IBookService
     {
         return await booksRepository.Get();
     }
+
+    public async Task<Book> GetBookById(Guid id)
+    {
+        return await booksRepository.GetById(id);
+    }
     
     public async Task<Guid> CreateBook(Book book)
     {
