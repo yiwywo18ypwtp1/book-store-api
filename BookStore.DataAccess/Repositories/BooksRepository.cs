@@ -1,4 +1,5 @@
-﻿using BookStore.Core.Models;
+﻿using BookStore.Core.Abstractions;
+using BookStore.Core.Models;
 using BookStore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,14 +20,12 @@ public class BooksRepository(BookStoreDbContext context) : IBooksRepository
         return books;
     }
 
-    public async Task<Book> GetById(Guid id)
+    public async Task<Book?> GetById(Guid id)
     {
         var bookEntity = await context.Books.FindAsync(id);
 
         if (bookEntity == null)
-        {
-            throw new KeyNotFoundException();
-        }
+            return null;
         
         var result = Book.Create(
             bookEntity.Id,

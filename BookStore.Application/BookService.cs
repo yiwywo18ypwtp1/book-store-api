@@ -1,4 +1,5 @@
-﻿using BookStore.Core.Models;
+﻿using BookStore.Core.Abstractions;
+using BookStore.Core.Models;
 using BookStore.DataAccess.Repositories;
 
 namespace BookStore.Application;
@@ -10,7 +11,7 @@ public class BookService(IBooksRepository booksRepository) : IBookService
         return await booksRepository.Get();
     }
 
-    public async Task<Book> GetBookById(Guid id)
+    public async Task<Book?> GetBookById(Guid id)
     {
         return await booksRepository.GetById(id);
     }

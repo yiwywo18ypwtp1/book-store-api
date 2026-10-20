@@ -1,5 +1,6 @@
 using BookStore.API.Contracts;
 using BookStore.Application;
+using BookStore.Core.Abstractions;
 using BookStore.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,9 +24,12 @@ public class BooksController(IBookService bookService) : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<List<BooksResponse>>> GetBookById(Guid id)
     {
-        var books = await bookService.GetBookById(id);
+        var book = await bookService.GetBookById(id);
+        
+        if (book is null)
+            return NotFound();
 
-        return Ok(books);
+        return Ok(book);
     }
 
     [HttpPost]

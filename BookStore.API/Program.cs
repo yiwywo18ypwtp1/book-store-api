@@ -1,4 +1,5 @@
 using BookStore.Application;
+using BookStore.Core.Abstractions;
 using BookStore.DataAccess;
 using BookStore.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
